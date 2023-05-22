@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Details</title>
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+}
+</style>
+<body>
+    <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+}
+</style>
+    <h1>Team Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Team Name</th>
+                <th>Name</th>
+                <th>Work Description</th>
+                <th>Room</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Time Durations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in all_data %}
+            <tr>
+                <td>{{ team.team_name }}</td>
+                <td>{{ team.name }}</td>
+                <td>{{ team.work_description }}</td>
+                <td>{{ team.Room.room }}</td>
+                <td>{{ team.Time.start_time }}</td>
+                <td>{{ team.Time.end_time }}</td>
+
+                <!-- <td>{{ team.Time.end_time }}</td> -->
+                <td>{{ team.Time.time_durations }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</html>
