@@ -46,9 +46,9 @@
                 <th>Room</th>
                 <th>Start Time</th>
                 <th>End Time</th>
-                <th>From Date</th>
-                <th>To Date</th>
-                <th>Time Durations</th>
+                <th>Durations</th>
+
+
             </tr>
         </thead>
         <tbody>
@@ -58,15 +58,48 @@
                 <td>{{ team.name }}</td>
                 <td>{{ team.work_description }}</td>
                 <td>{{ team.Room.room }}</td>
-                <td>{{ team.Time.start_time }}</td>
-                <td>{{ team.Time.end_time }}</td>
-
-                <!-- <td>{{ team.Time.end_time }}</td> -->
-                <td>{{ team.Time.time_durations }}</td>
+                <td>{{ team.Time.starting_time }}</td>
+                <td>{{ team.Time.ending_time }}</td>
+                <td>{{ team.Time.total_time}}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <br> </br>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Room</th>
+                <th>Teams</th>
+                <th>Working Time</th>
+                <th>From</th>
+                <th>To</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for teams in all_data %}
+            <tr>
+                <td>{{ teams.Time.starting_time|date:"Y-m-d" }}</td>
+                <td>{{ teams.Room.room }}</td>
+                <td>{{ teams.team_name }}</td>
+                <td>{{ teams.Time.total_time}}</td>
+                <td>{{ teams.Time.starting_time|time:"H:i:s" }}</td>
+                <td>{{teams.Time.ending_time|time:"H:i:s"}}
+
+            </tr>
+            {% endfor %}
+
+<h1> Teams in {{ hall.name}}</h1>
+<ul>
+    {% for team in teams %}
+        <li>{{ team.name }}</li>
+    {% endfor %}
+</ul>
+
+
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </html>

@@ -19,3 +19,11 @@ class team_model(models.Model):
     work_description = models.TextField(default="")
     Room = models.ForeignKey(room_model,on_delete=models.CASCADE)
     Time = models.ForeignKey(timing_model,on_delete=models.CASCADE)
+
+
+
+def get_teams_using_room(room_name):
+    teams_using_room = team_model.objects.filter(Room__room=room_name)
+    team_names = [team.team_name for team in teams_using_room]
+    
+    return team_names
